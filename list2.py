@@ -5,7 +5,8 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+# was able to figure out question E linear merge using this page https://en.wikipedia.org/wiki/Merge_algorithm
+__author__ = "Ruben Espino"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +29,15 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    #makes new list where you append the line without the repeating number or just appends the list
+    numList = []
+    for num in nums:
+        if len(numList):
+            if numList[-1] != num:
+                numList.append(num) 
+        else:
+            numList.append(num)
+    return numList
 
 
 # E. linear_merge
@@ -44,8 +52,17 @@ def remove_adjacent(nums):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    #makes a new list
+    mergedList = []
+    #while empty run through
+    while list1 and list2:
+        # if less then. append list1 to mergedList while removing the first part of list1
+        if list1[0] < list2[0]:
+            mergedList.append(list1.pop(0))
+        # append list2 to mergedList while removing the first part of list2
+        else:
+            mergedList.append(list2.pop(0))
+    return mergedList + list1 + list2
 
 
 # Provided simple test() function used in main() to print

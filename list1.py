@@ -5,7 +5,8 @@ Kenzie assignment: List1
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+#I used this site https://realpython.com/python-sort/#sorted-with-a-key-argument to answer question C sort_last
+__author__ = "Ruben Espino"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -26,8 +27,11 @@ __author__ = "???"
 
 
 def match_ends(words):
-    # your code here
-    return
+    count = 0
+    for letter in words:
+        if len(letter) > 1 and letter[0] == letter[-1]:
+            count += 1
+    return count
 
 
 # B. front_x
@@ -42,8 +46,10 @@ def match_ends(words):
 
 
 def front_x(words):
-    # your code here
-    return
+    #one list has words with x the other does not
+    str1 = [letter for letter in words if letter[0] == "x"]
+    str2 = [letter for letter in words if letter[0] !="x"]
+    return sorted(str1) + sorted(str2)
 
 
 # C. sort_last
@@ -56,8 +62,8 @@ def front_x(words):
 
 
 def sort_last(tuples):
-    # your code here
-    return
+    # reverses the numbers then sorts based on revesered number
+    return sorted(tuples, key=lambda x: x[-1])
 
 
 # Provided simple test() function used in main() to print
